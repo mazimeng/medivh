@@ -21,7 +21,10 @@ router.get('/callback', (req, res) => {
     }).then(function (response) {
         res.send({message: req.query});
     }).catch(function (error) {
-        res.send({message: error});
+        console.log(error);
+        res.send({
+            error: error.data
+        });
     });
 });
 
