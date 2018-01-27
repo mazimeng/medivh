@@ -19,7 +19,7 @@ router.get('/callback', (req, res) => {
             code: code
         }
     }).then(function (response) {
-        res.send({message: req.query});
+        res.send({message: response.data});
     }).catch(function (error) {
         console.log(error);
         res.send({
