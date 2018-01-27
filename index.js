@@ -6,6 +6,8 @@ const app = express();
 const router = express.Router();
 const config = require('./config');
 
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 app.use(express.static('public'));
 app.use(express.json());
 
