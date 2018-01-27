@@ -21,6 +21,8 @@ router.get('/callback', (req, res) => {
             code: code
         }
     }).then(function (response) {
+        console.log(response.data);
+        console.log(response.status);
         res.send({message: response.data});
     }).catch(function (error) {
         res.send({
