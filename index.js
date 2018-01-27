@@ -15,13 +15,8 @@ app.use(express.json());
 router.get('/callback', (req, res) => {
     const code = req.query.code;
     const state = req.query.state;
-    axios.post('https://github.com/login/oauth/access_token', {
-        data: {
-            client_id: config.github.clientId,
-            client_secret: config.github.clientSecret,
-            code: code
-        }
-    }).then(function (response) {
+    const url = `https://github.com/login/oauth/access_token?client_id=${config.github.clientId}&client_secret=${config.github.clientSecret}&code=${code}`;
+    axios.post(url).then(function (response) {
         console.log(response.data);
         console.log(response.status);
         res.send({message: response.data});
